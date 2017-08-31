@@ -1,0 +1,66 @@
+{%
+Dim NB_QUESTION = CurrentQuestion.AvailableResponses.Count
+Dim i
+Dim inputId
+Dim inputName
+Dim inputCode
+Dim inputValue
+Dim cpt_id
+Dim leastQuestion = CurrentADC.PropQuestion("leastQuestion")
+Dim mostCaption = On(CurrentADC.PropValue("mostCaption") <> "", CurrentADC.PropValue("mostCaption"), "Most")
+Dim leastCaption = On(CurrentADC.PropValue("leastCaption") <> "", CurrentADC.PropValue("leastCaption"), "Least")
+Dim attrChecked
+Dim isSelected
+%}
+<div id="adc_{%= CurrentADC.InstanceId %}">
+    <table width="100%">
+        <tr>
+            <td class="gridmyresponseheader">
+                {%:= mostCaption %}
+        	</td>
+        	<td class="gridmyresponseheader">
+                {%:= CurrentADC.PropValue("centerCaption") %}
+        	</td>
+            <td class="gridmyresponseheader">
+                {%:= leastCaption %}
+            </td>
+        </tr>
+        {% For i=1 To NB_QUESTION %}
+        	<tr>
+                {%
+				isSelected = On(CurrentQuestion.AvailableResponses[i].IsSelected, " selected", "")
+				%}
+                <td align="center" class="respCol most{%= CurrentADC.InstanceId %}{%:= isSelected %}">
+                    {%
+                    inputName 	= CurrentQuestion.AvailableResponses[i].InputName()
+                    inputId     	= (inputName + "_" + i).Replace("U", "askia-input")
+                    inputCode 	 = CurrentQuestion.InputCode
+                    inputValue 	 = CurrentQuestion.AvailableResponses[i].InputValue()
+					cpt_id			= "cpt" + inputName.Replace("U", "") + "_" + inputValue
+					attrChecked = On(CurrentQuestion.AvailableResponses[i].IsSelected, "checked=\"checked\"", "")
+                    %}
+                    <input type="radio" id="{%:= inputId %}" class="askia-question-{%= inputCode %}" name="{%:= inputName %}" value="{%:= inputValue %}" {%:= attrChecked %}>
+					<label for="{%= inputId %}" class="askia-radio askia-question-{%= inputCode %}"></label>
+                </td>
+				<td align="center" class="gridmyresponseheader">
+                    <span>{%:= CurrentQuestion.AvailableResponses[i].Caption%}</span>
+                </td>
+                {%
+				isSelected = On(leastQuestion.AvailableResponses[i].IsSelected, " selected", "")
+				%}
+                <td align="center" class="respCol least{%= CurrentADC.InstanceId %}{%:= isSelected %}">
+                    {%
+                    inputName 	= leastQuestion.AvailableResponses[i].InputName()
+                    inputId     	= (inputName + "_" + i).Replace("U", "askia-input")
+                    inputCode 	 = leastQuestion.InputCode
+                    inputValue 	 = leastQuestion.AvailableResponses[i].InputValue()
+					cpt_id			= "cpt" + inputName.Replace("U", "") + "_" + inputValue
+					attrChecked = On(leastQuestion.AvailableResponses[i].IsSelected, "checked=\"checked\"", "")
+                    %}
+                    <input type="radio" id="{%:= inputId %}" class="askia-question-{%= inputCode %}" name="{%:= inputName %}" value="{%:= inputValue %}" {%:= attrChecked %}>
+					<label for="{%= inputId %}" class="askia-radio askia-question-{%= inputCode %}"></label>
+            	</td>
+        	</tr>
+        {% Next %}
+    </table>
+</div>
