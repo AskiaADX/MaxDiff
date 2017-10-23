@@ -5,9 +5,9 @@
           version="2.1.0"
           askiaCompat="5.4.2">
   <info>
-    <name>adc2-MaxDiff</name>
+    <name>MaxDiff</name>
     <guid>c52cac32-4224-4f3c-b594-05da4ef4ac65</guid>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
     <date>2017-08-09</date>
     <description><![CDATA[]]></description>
     <company>Askia</company>
@@ -26,13 +26,28 @@
   <outputs defaultOutput="default">
     <output id="default">
       <description><![CDATA[Default output]]></description>
-      <content fileName="default.html" type="html" mode="dynamic" position="placeholder" />
+      <content fileName="MaxDiff.css" type="css" mode="static" position="head" />
       <content fileName="default.css" type="css" mode="dynamic" position="head" />
-      <content fileName="default.js" type="javascript" mode="dynamic" position="foot" />
+      <content fileName="default.html" type="html" mode="dynamic" position="placeholder" />
+      <content fileName="MaxDiff.js" type="javascript" mode="static" position="foot" />
+      <content fileName="Initializer.js" type="javascript" mode="dynamic" position="foot" />
     </output>
   </outputs>
   <properties>
     <category id="general" name="General">
+      <property xsi:type="standardProperty" id="controlWidth" name="Control Max Width" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[The max width of the control]]></description>
+        <value><![CDATA[100%]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="controlAlign" name="Control Alignment" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[The alignment of the control]]></description>
+        <value><![CDATA[center]]></value>
+        <options>
+          <option value="left" text="Left" />
+          <option value="center" text="Center" />
+          <option value="right" text="Right" />
+        </options>
+      </property>
       <property xsi:type="standardProperty" id="leastQuestion" name="Least Question" type="question" require="false" visible="true">
         <description><![CDATA[Set as the least question]]></description>
         <value></value>
@@ -50,14 +65,37 @@
         <value></value>
       </property>
     </category>
-    <category id="color" name="Color">
-      <property xsi:type="standardProperty" id="selectedCell" name="Selected Cell Color" type="color" mode="dynamic" require="false" visible="true" colorFormat="rgba">
-        <description><![CDATA[]]></description>
-        <value><![CDATA[{%= Theme.PrimaryColor %}]]></value>
+    <category id="style" name="Style">
+      <property xsi:type="standardProperty" id="selectedCell" name="Selected Cell Color" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgba">
+        <description><![CDATA[Selected Cell Color]]></description>
+        <value><![CDATA[{%= Theme.SecondaryColor %}]]></value>
       </property>
-      <property xsi:type="standardProperty" id="tableBackground" name="Table Background Color" type="color" mode="dynamic" require="false" visible="true" colorFormat="rgba">
-        <description><![CDATA[]]></description>
-        <value><![CDATA[ {%= Theme.WhiteColor %}]]></value>
+      <property xsi:type="standardProperty" id="tableBackground" name="Table Background Color" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgba">
+        <description><![CDATA[Table Background Color]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="borderRadius" name="Border Radius" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The amount of curve on the table corners]]></description>
+        <value><![CDATA[{%= Theme.BorderRadius %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="borderColour" name="Border Colour" type="color" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The border colour]]></description>
+        <value><![CDATA[{%= Theme.NeutralDarkColor %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="borderThickness" name="Border Thickness" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The thickness of the border]]></description>
+        <value><![CDATA[{%= Theme.BorderWidth %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="borderStyle" name="Border Style" type="string" mode="dynamic" require="true" visible="false">
+        <description><![CDATA[The style of the border]]></description>
+        <value><![CDATA[solid]]></value>
+        <options>
+          <option value="none" text="None" />
+          <option value="solid" text="Solid" />
+          <option value="dashed" text="Dashed" />
+          <option value="dotted" text="Dotted" />
+          <option value="double" text="Double" />
+        </options>
       </property>
     </category>
   </properties>

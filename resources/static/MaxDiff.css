@@ -1,0 +1,30 @@
+.adcmaxdiff {
+    width: 100%;
+    text-align: center;
+}
+.adcmaxdiff table {
+    width: 100%;
+    box-shadow: 0px 2px 4px rgba(0,0,0,.2);
+    border-collapse: collapse;
+}
+.adcmaxdiff .least,
+.adcmaxdiff .most {
+    text-decoration: none;
+}
+.adcmaxdiff td,
+.adcmaxdiff .firstRow td {
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+.adcmaxdiff td:last-child {
+    border-right: 0;
+}
+.adcmaxdiff .respCol {
+    text-decoration: none;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+.adcmaxdiff .respCol:hover {
+    cursor:pointer;
+}

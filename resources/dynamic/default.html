@@ -12,16 +12,16 @@ Dim leastCaption = On(CurrentADC.PropValue("leastCaption") <> "", CurrentADC.Pro
 Dim attrChecked
 Dim isSelected
 %}
-<div id="adc_{%= CurrentADC.InstanceId %}">
-    <table width="100%">
-        <tr>
-            <td class="gridmyresponseheader">
+<div id="adc_{%= CurrentADC.InstanceId %}" class="adcmaxdiff">
+    <table>
+        <tr class="firstRow">
+            <td>
                 {%:= mostCaption %}
         	</td>
-        	<td class="gridmyresponseheader">
+        	<td>
                 {%:= CurrentADC.PropValue("centerCaption") %}
         	</td>
-            <td class="gridmyresponseheader">
+            <td>
                 {%:= leastCaption %}
             </td>
         </tr>
@@ -42,7 +42,7 @@ Dim isSelected
                     <input type="radio" id="{%:= inputId %}" class="askia-question-{%= inputCode %}" name="{%:= inputName %}" value="{%:= inputValue %}" {%:= attrChecked %}>
 					<label for="{%= inputId %}" class="askia-radio askia-question-{%= inputCode %}"></label>
                 </td>
-				<td align="center" class="gridmyresponseheader">
+				<td align="center">
                     <span>{%:= CurrentQuestion.AvailableResponses[i].Caption%}</span>
                 </td>
                 {%
