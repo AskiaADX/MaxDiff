@@ -12,6 +12,7 @@ Dim leastCaption = On(CurrentADC.PropValue("leastCaption") <> "", CurrentADC.Pro
 Dim attrChecked
 Dim isSelected
 %}
+
 <div id="adc_{%= CurrentADC.InstanceId %}" class="adcmaxdiff">
     <table>
         <tr class="firstRow">
@@ -40,7 +41,7 @@ Dim isSelected
 					attrChecked = On(CurrentQuestion.AvailableResponses[i].IsSelected, "checked=\"checked\"", "")
                     %}
                     <input type="radio" id="{%:= inputId %}" class="askia-question-{%= inputCode %}" name="{%:= inputName %}" value="{%:= inputValue %}" {%:= attrChecked %}>
-					<label for="{%= inputId %}" class="askia-radio askia-question-{%= inputCode %}"></label>
+					<label for="{%= inputId %}" class="askia-radio askia-question-{%= inputCode %}"><span hidden>Radio</span></label>
                 </td>
 				<td align="center">
                     <span>{%:= CurrentQuestion.AvailableResponses[i].Caption%}</span>
@@ -58,7 +59,7 @@ Dim isSelected
 					attrChecked = On(leastQuestion.AvailableResponses[i].IsSelected, "checked=\"checked\"", "")
                     %}
                     <input type="radio" id="{%:= inputId %}" class="askia-question-{%= inputCode %}" name="{%:= inputName %}" value="{%:= inputValue %}" {%:= attrChecked %}>
-					<label for="{%= inputId %}" class="askia-radio askia-question-{%= inputCode %}"></label>
+					<label for="{%= inputId %}" class="askia-radio askia-question-{%= inputCode %}"><span hidden>Radio</span></label>
             	</td>
         	</tr>
         {% Next %}
