@@ -7,7 +7,7 @@
   <info>
     <name>MaxDiff</name>
     <guid>c52cac32-4224-4f3c-b594-05da4ef4ac65</guid>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
     <date>2017-08-09</date>
     <description><![CDATA[v2.0.1 - Added hidden span to labels]]></description>
     <company>Askia</company>
@@ -18,7 +18,7 @@
       <category>General</category>
     </categories>
     <constraints>
-      <constraint on="questions" chapter="false" single="true" multiple="false" numeric="false" date="false" open="false" requireParentLoop="false" />
+      <constraint on="questions" chapter="false" single="true" multiple="false" numeric="false" date="false" open="false" requireParentLoop="false" RequireLoopDepth="false" />
       <constraint on="controls" responseblock="true" label="false" textbox="false" checkbox="false" listbox="false" radiobutton="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
