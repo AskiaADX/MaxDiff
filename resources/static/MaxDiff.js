@@ -1,9 +1,9 @@
 (function () {
-    
+
     var instanceId = 1;
     var currentQuestion = '';
     var leastQuestion = '';
-    
+
     /**
    * Trigger the DOM event
    *
@@ -25,7 +25,7 @@
             obj['on' + type]();
         }
     }
-    
+
     function exclusiveChangeEvent(event) {
         event.preventDefault();
         var opId;
@@ -34,8 +34,8 @@
     	if (event.target.checked) {
             var opposite = document.querySelector("." + opId + instanceId + " [id$='"+ id_resp +"']");
             opposite.checked = false;
-            if (window.askia 
-            && window.arrLiveRoutingShortcut 
+            if (window.askia
+            && window.arrLiveRoutingShortcut
             && window.arrLiveRoutingShortcut.length > 0
             && (window.arrLiveRoutingShortcut.indexOf(currentQuestion) >= 0
                || window.arrLiveRoutingShortcut.indexOf(leastQuestion) >= 0)) {
@@ -43,8 +43,8 @@
         	}
         }
     }
-                                                  
-                                                         
+
+
 	function changeColor(e) {
 		e.preventDefault();
         var opId
@@ -59,7 +59,7 @@
             }
         }
     }
- 
+
     function restrictEvent() {
         var buttons = document.querySelectorAll("#adc_" + instanceId + " input");
 		for (var i=0; i<buttons.length; ++i) {
@@ -74,26 +74,42 @@
     	instanceId = options.instanceId || 1;
         currentQuestion = options.currentQuestion || '';
         leastQuestion = options.leastQuestion || '';
-        
+
         var cells = document.querySelectorAll("[class*='least']")
         for(i=0; i<cells.length; i++) {
             cells[i].addEventListener("click", (function(e){
-                if (event.target.firstElementChild != null) {
-                    e.preventDefault();
-                    e.target.firstElementChild.checked = true;
-                    triggerEvent(event.target.firstElementChild,'change');
-                }
+              if(event.target.localName === 'td'){
+      					if (event.target.firstElementChild != null) {
+      						e.preventDefault();
+      						e.target.firstElementChild.checked = true;
+      						triggerEvent(event.target.firstElementChild,'change');
+      					}
+            	} else if(event.target.localName === 'label'){
+      					if (event.target.previousElementSibling != null) {
+      						e.preventDefault();
+      						e.target.previousElementSibling.checked = true;
+      						triggerEvent(event.target.previousElementSibling,'change');
+      					}
+            	}
             }));
         }
 
         var cells = document.querySelectorAll("[class*='most']")
         for(i=0; i<cells.length; i++) {
             cells[i].addEventListener("click", (function(e){
-                if (event.target.firstElementChild != null) {
-                    e.preventDefault();
-                    e.target.firstElementChild.checked = true;
-                    triggerEvent(event.target.firstElementChild,'change');
-                }
+              if(event.target.localName === 'td'){
+      					if (event.target.firstElementChild != null) {
+      						e.preventDefault();
+      						e.target.firstElementChild.checked = true;
+      						triggerEvent(event.target.firstElementChild,'change');
+      					}
+            	} else if(event.target.localName === 'label'){
+      					if (event.target.previousElementSibling != null) {
+      						e.preventDefault();
+      						e.target.previousElementSibling.checked = true;
+      						triggerEvent(event.target.previousElementSibling,'change');
+      					}
+            	}
             }));
         }
 
@@ -106,5 +122,3 @@
     window.MaxDiff = MaxDiff;
 
 }());
-        
-        
