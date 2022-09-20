@@ -7,7 +7,7 @@
   <info>
     <name>MaxDiff</name>
     <guid>c52cac32-4224-4f3c-b594-05da4ef4ac65</guid>
-    <version>3.0.3</version>
+    <version>3.0.4</version>
     <date>2020-04-27</date>
     <description><![CDATA[v2.0.1 - Added hidden span to labels]]></description>
     <company>Askia</company>
@@ -24,7 +24,7 @@
     </constraints>
   </info>
   <outputs defaultOutput="default">
-    <output id="default" manageLoopDepth="1">
+    <output id="default" manageLoopDepth="0">
       <description><![CDATA[Default output]]></description>
       <content fileName="MaxDiff.css" type="css" mode="static" position="head" />
       <content fileName="default.css" type="css" mode="dynamic" position="head" />
