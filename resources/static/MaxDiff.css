@@ -1,7 +1,6 @@
 .adcmaxdiff {
     width: 100%;
-    text-align: center;
-}
+ text-align: center;}
 .adcmaxdiff table {
     width: 100%;
     box-shadow: 0px 2px 4px rgba(0,0,0,.2);
@@ -10,12 +9,14 @@
 .adcmaxdiff .least,
 .adcmaxdiff .most {
     text-decoration: none;
+    text-align: center;
 }
 .adcmaxdiff td,
-.adcmaxdiff .firstRow td {
+.adcmaxdiff .firstRow {
     margin-bottom: 0px;
     text-decoration: none;
-}
+  ' text-align: center;
+ }
 .adcmaxdiff td:last-child {
     border-right: 0;
 }
@@ -24,7 +25,14 @@
     outline: none;
     text-decoration: none;
     cursor: pointer;
+    text-align: center;
 }
 .adcmaxdiff .respCol:hover {
     cursor:pointer;
 }
+.adcmaxdiff .askia-radio,
+.adcmaxdiff .askia-checkbox {
+    float: none !important;
+}
+
+ 

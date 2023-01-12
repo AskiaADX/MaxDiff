@@ -7,9 +7,12 @@
   <info>
     <name>MaxDiff</name>
     <guid>c52cac32-4224-4f3c-b594-05da4ef4ac65</guid>
-    <version>3.0.4</version>
+    <version>3.0.5</version>
     <date>2020-04-27</date>
-    <description><![CDATA[v2.0.1 - Added hidden span to labels]]></description>
+    <description><![CDATA[
+	v2.0.1 - Added hidden span to labels
+	v3.0.5 - Alignment fixes CCP
+	]]></description>
     <company>Askia</company>
     <author><![CDATA[Clément Salomon <clement@askia.com>]]></author>
     <site>https://askia.com/</site>
@@ -24,7 +27,7 @@
     </constraints>
   </info>
   <outputs defaultOutput="default">
-    <output id="default" manageLoopDepth="0">
+    <output id="default" manageLoopDepth="1">
       <description><![CDATA[Default output]]></description>
       <content fileName="MaxDiff.css" type="css" mode="static" position="head" />
       <content fileName="default.css" type="css" mode="dynamic" position="head" />
@@ -61,8 +64,17 @@
         <value><![CDATA[Least]]></value>
       </property>
       <property xsi:type="standardProperty" id="centerCaption" name="Center Caption" type="string" mode="dynamic" require="false" visible="true">
-        <description><![CDATA[]]></description>
+        <description><![CDATA[Name of the title of the 2nd column]]></description>
         <value></value>
+      </property>
+      <property xsi:type="standardProperty" id="alignCaption" name="Caption Alignment" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Alignment  of the caption item]]></description>
+        <value><![CDATA[Center]]></value>
+        <options>
+          <option value="Center" text="Center" />
+          <option value="Left" text="Left" />
+          <option value="Right" text="Right" />
+        </options>
       </property>
     </category>
     <category id="style" name="Style">
